@@ -70,3 +70,16 @@ Adapters pull assistant/agent messages from local agent history stores. They are
 ## Attribution
 
 This project is adapted from https://github.com/gricha/devrage.
+
+## Publishing
+
+The GitHub Actions publish workflow uses npm Trusted Publishing with GitHub OIDC,
+not a classic npm token. Configure the package on npmjs.com with this trusted
+publisher:
+
+- Repository: `unfrgivn/supernaturalist`
+- Workflow: `.github/workflows/publish.yml`
+- Environment: leave blank unless the workflow is updated to use one
+
+The workflow publishes on GitHub release publication or manual dispatch and runs
+`npm publish --access public --provenance` after typecheck, lint, build, and test.
