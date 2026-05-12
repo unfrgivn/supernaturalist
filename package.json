@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "Analyze supernatural language in your coding agent responses",
   "type": "module",
-  "bin": "./dist/cli.js",
+  "bin": {
+    "supernaturalist": "dist/cli.js"
+  },
   "exports": {
     ".": {
       "types": "./dist/lib/index.d.ts",
