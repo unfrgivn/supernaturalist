@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Analyze supernatural language in your coding agent responses",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unfrgivn/supernaturalist"
+  },
   "bin": {
     "supernaturalist": "dist/cli.js"
   },
