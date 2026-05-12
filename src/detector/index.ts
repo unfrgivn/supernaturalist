@@ -136,12 +136,6 @@ const WORDLIST: WordDef[] = [
   { word: "spellbook", intensity: "vivid", group: "spell" },
   { word: "spellcasting", intensity: "vivid", group: "spell" },
 
-  // === HEX family (ominous) ===
-  { word: "hex", intensity: "ominous", group: "hex" },
-  { word: "hexed", intensity: "ominous", group: "hex" },
-  { word: "hexes", intensity: "ominous", group: "hex" },
-  { word: "hexing", intensity: "ominous", group: "hex" },
-
   // === GRIMOIRE family (vivid) ===
   { word: "grimoire", intensity: "vivid", group: "grimoire" },
   { word: "grimoires", intensity: "vivid", group: "grimoire" },
