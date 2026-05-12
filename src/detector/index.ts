@@ -163,8 +163,6 @@ const WORDLIST: WordDef[] = [
   { word: "exorcist", intensity: "ominous", group: "exorcism" },
   { word: "seance", intensity: "vivid", group: "seance" },
   { word: "séance", intensity: "vivid", group: "seance" },
-  { word: "medium", intensity: "subtle", group: "medium" },
-  { word: "mediums", intensity: "subtle", group: "medium" },
   { word: "ouija", intensity: "vivid", group: "ouija" },
   { word: "hauntology", intensity: "subtle", group: "haunt" },
   { word: "banshee", intensity: "vivid", group: "banshee" },
