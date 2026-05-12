@@ -1,5 +1,7 @@
 import { scan } from "./commands/scan";
 
+declare const __PACKAGE_VERSION__: string;
+
 const COMMANDS: Record<string, (args: string[]) => Promise<void>> = {
   scan,
 };
@@ -33,7 +35,7 @@ async function main(): Promise<void> {
   }
 
   if (command === "--version") {
-    console.log("0.1.0");
+    console.log(__PACKAGE_VERSION__);
     process.exit(0);
   }
 

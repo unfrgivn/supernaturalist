@@ -81,5 +81,7 @@ publisher:
 - Workflow: `.github/workflows/publish.yml`
 - Environment: leave blank unless the workflow is updated to use one
 
-The workflow publishes on GitHub release publication or manual dispatch and runs
-`npm publish --access public --provenance` after typecheck, lint, build, and test.
+The workflow publishes on pushes to `main` or manual dispatch. It runs typecheck,
+lint, build, and test, increments the patch version with `npm version patch`,
+publishes with `npm publish --access public --provenance`, then pushes the release
+commit and tag back to `main`.

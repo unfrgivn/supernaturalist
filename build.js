@@ -1,7 +1,9 @@
 import * as esbuild from "esbuild";
 import { execSync } from "node:child_process";
+import { readFileSync } from "node:fs";
 
 const watch = process.argv.includes("--watch");
+const packageJson = JSON.parse(readFileSync("package.json", "utf-8"));
 
 /** @type {esbuild.BuildOptions} */
 const cliOptions = {
@@ -13,6 +15,7 @@ const cliOptions = {
   outfile: "dist/cli.js",
   packages: "external",
   banner: { js: "#!/usr/bin/env node" },
+  define: { __PACKAGE_VERSION__: JSON.stringify(packageJson.version) },
   sourcemap: true,
 };
 

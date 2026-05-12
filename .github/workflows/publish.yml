@@ -1,21 +1,28 @@
 name: Publish to npm
 
 on:
-  release:
-    types: [published]
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   id-token: write
+
+concurrency:
+  group: publish-npm
+  cancel-in-progress: false
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    if: github.event_name != 'push' || !contains(github.event.head_commit.message, 'chore: release')
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -39,5 +46,19 @@ jobs:
       - name: Test
         run: npm test
 
+      - name: Configure release git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Increment patch version
+        run: npm version patch -m "chore: release %s [skip ci]"
+
+      - name: Build release package
+        run: npm run build
+
       - name: Publish package
         run: npm publish --access public --provenance
+
+      - name: Push release commit and tag
+        run: git push --follow-tags
