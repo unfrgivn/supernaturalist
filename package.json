@@ -1,6 +1,6 @@
 {
   "name": "supernaturalist",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Analyze supernatural language in your coding agent responses",
   "type": "module",
   "repository": {
